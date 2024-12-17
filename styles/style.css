@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --bgcolor: #393939;
+  --textPrimary: #eeeeee;
+  --textSecondary: #666;
+  --primaryText: #ff9758;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bgcolor);
+  color: var(--textPrimary);
+  font-family: Roboto;
+}
+
+img,
+svg {
+  cursor: pointer;
+}
+
+span,
+p,
+button,
+li {
+  font-size: 1rem;
+}
+
+#container {
+  padding: 0 20px;
+  height: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: var(--primaryText);
+}
+
+/* header */
+
+header {
+  padding: 1.5rem 0;
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+#logo {
+  width: 2.5rem;
+}
+
+/* main */
+
+main > *,
+#game-container > * {
+  margin-bottom: 2rem;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#timer-info,
+#words {
+  font-size: 2rem;
+}
+
+#timer-info {
+  color: var(--primaryText);
+}
+
+#words {
+  word-spacing: 1.5rem;
+  color: var(--textSecondary);
+}
+
+#restart-button-container {
+  display: flex;
+  font-weight: 600;
+  color: var(--textSecondary);
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+#restart-image {
+  width: 2rem;
+}
+
+#restart-span-label {
+  transition: opacity 0.15s;
+}
+
+#restart-button-container:hover {
+  filter: invert(100%);
+}
