@@ -2,6 +2,8 @@ import { addClass } from './add.class.js';
 import { removeClass } from './remove.class.js';
 
 const handleSpace = (currentLetter, currentWord, expected) => {
+  if (currentWord.firstChild === currentLetter) return;
+
   if (expected !== ' ') {
     const incorrectLetters = [
       ...document.querySelectorAll(
