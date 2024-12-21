@@ -7,27 +7,27 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="shortcut icon" href="public/hono.svg" type="image/x-icon" />
 
-    <script src="script.js" defer></script>
+    <script src="scripts/main.js" type="module" defer></script>
   </head>
   <body>
     <div id="container">
       <header>
-        <img id="logo" src="public/hono.svg" alt="" />
-        <h1>reflection-type</h1>
+        <div id="logo-container">
+          <img id="logo" src="public/hono.svg" alt="" />
+          <h1>reflectiontype</h1>
+        </div>
       </header>
       <main>
         <div id="timer-info">30</div>
-        <div id="game-container">
-          <p id="words">
-            Далеко-далеко за словесными горами в стране гласных и согласных
-            живут рыбные тексты. Знаках ведущими предложения ipsum собрал?
-            Большого, дороге если наш коварных буквоград власти переписывается
-            залетают инициал дал, вопрос текстов, оксмокс они.
-          </p>
+        <div id="game-container" tabindex="0">
+          <div id="words"></div>
           <div id="cursor"></div>
+          <div id="focus-warn">Click here to focus</div>
+        </div>
+        <div id="wrapper">
           <div id="restart-button-container">
             <img src="public/restart.svg" id="restart-image" />
-            <span hidden id="restart-span-label">restart</span>
+            <span id="restart-span-label">restart</span>
           </div>
         </div>
       </main>
