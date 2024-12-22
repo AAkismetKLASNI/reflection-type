@@ -20,6 +20,7 @@ body {
   background-color: var(--bgcolor);
   color: var(--textPrimary);
   font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
 }
 
 img,
@@ -30,7 +31,7 @@ svg {
 #container {
   padding: 0 20px;
   height: 100%;
-  max-width: 1550px;
+  max-width: 1570px;
   margin: 0 auto;
 }
 
@@ -59,10 +60,13 @@ header {
 
 /* main */
 
+main > * {
+  margin-bottom: 2rem;
+}
+
 main > *,
 #game-container > * {
   user-select: none;
-  margin-bottom: 2rem;
 }
 
 #game-container {
@@ -102,6 +106,15 @@ main > *,
 #timer-info,
 #words {
   font-size: 2rem;
+}
+
+#words-type {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  outline: none;
+  border: none;
+  opacity: 0;
 }
 
 #words {
@@ -176,6 +189,12 @@ main > *,
 
 .letter.extra {
   color: var(--extraText);
+}
+
+@media (max-width: 570px) {
+  header {
+    margin-bottom: 100px;
+  }
 }
 
 @keyframes blink {
