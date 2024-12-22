@@ -4,18 +4,13 @@ import {
   handleBackspace,
   handleTimer,
   handleCursor,
+  timerPicker,
 } from './helpers/index.js';
 import { newGame } from './utils/index.js';
 
-const gameTime = Number(document.getElementById('timer-info').innerHTML) * 1000;
 window.timer = null;
 window.gameStart = null;
 
-newGame(gameTime);
-
-document.getElementById('restart-button-container').onclick = () =>
-  newGame(gameTime);
-document.getElementById('logo-container').onclick = () => newGame(gameTime);
 document.getElementById('game-container').onkeyup = (event) => {
   const currentWord = document.querySelector('.word.current');
   const currentLetter = document.querySelector('.letter.current');
@@ -28,7 +23,7 @@ document.getElementById('game-container').onkeyup = (event) => {
 
   if (document.querySelector('#game-container.over')) return;
 
-  if (!window.timer && isLetter) handleTimer(gameTime);
+  if (!window.timer && isLetter) handleTimer();
 
   if (isLetter) handleLetter(currentLetter, currentWord, expected, key);
 
@@ -38,3 +33,9 @@ document.getElementById('game-container').onkeyup = (event) => {
 
   handleCursor();
 };
+
+document.getElementById('timer-picker').onclick = timerPicker;
+document.getElementById('restart-button-container').onclick = newGame;
+document.getElementById('logo-container').onclick = newGame;
+
+newGame();

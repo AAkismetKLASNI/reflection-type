@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
-  --bgcolor: #2c2c2c;
+  --bgcolor: #2e2727;
   --textPrimary: #d0d0d0;
   --textSecondary: #666;
-  --primaryText: #ff9758;
+  --primaryText: #fd5a11;
   --errorText: #a33333;
   --extraText: #db2a2a;
 }
@@ -52,6 +52,7 @@ header {
   gap: 0.7rem;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 }
 
 #logo {
@@ -99,13 +100,37 @@ main > *,
   filter: blur(0);
 }
 
-#timer-info {
+#timer {
   color: var(--primaryText);
 }
 
-#timer-info,
+#timer,
 #words {
   font-size: 2rem;
+}
+
+#timer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#timer-picker {
+  font-size: 1rem;
+  display: flex;
+  gap: 2.5rem;
+  padding: 10px 30px;
+  border-radius: 50px;
+  background-color: #242222;
+}
+
+.time-option:hover {
+  color: var(--primaryText);
+  cursor: pointer;
+}
+
+.time-option.active {
+  color: var(--primaryText);
 }
 
 #words-type {
@@ -130,7 +155,7 @@ main > *,
   left: 5px;
   top: 5px;
   width: 3px;
-  background-color: #ff9758;
+  background-color: var(--primaryText);
   height: 40px;
   animation: blink 1s infinite;
   transition: all 0.13s;
@@ -142,7 +167,7 @@ main > *,
   text-align: center;
 }
 
-#wrapper,
+.wrapper,
 #restart-button-container {
   justify-content: center;
   display: flex;

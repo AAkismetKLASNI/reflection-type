@@ -6,3 +6,4 @@ export * from './handle.space.js';
 export * from './handle.backspace.js';
 export * from './handle.timer.js';
 export * from './handle.cursor.js';
+export * from './timer.picket.js';

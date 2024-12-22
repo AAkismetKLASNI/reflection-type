@@ -1,7 +1,7 @@
 import { words } from '../data.js';
 import { getRandomWord } from '../helpers/index.js';
 
-const newGame = (gameTime) => {
+const newGame = () => {
   if (window.timer) {
     clearInterval(window.timer);
     window.timer = null;
@@ -9,8 +9,9 @@ const newGame = (gameTime) => {
     document.getElementById('game-container').classList.remove('over');
   }
 
-  document.getElementById('timer-info').innerHTML = gameTime / 1000;
-
+  document.getElementById('timer').innerHTML = document.querySelector(
+    '.time-option.active'
+  )?.innerHTML;
   document.getElementById('words').innerHTML = '';
   document.getElementById('words').style.marginTop = '0';
 

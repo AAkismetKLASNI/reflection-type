@@ -18,14 +18,21 @@
         </div>
       </header>
       <main>
-        <div id="timer-info">30</div>
+        <div id="timer-container">
+          <span id="timer">30</span>
+          <div id="timer-picker">
+            <span class="time-option">15</span>
+            <span class="time-option active">30</span>
+            <span class="time-option">60</span>
+          </div>
+        </div>
         <div id="game-container" tabindex="0">
           <input id="words-type" type="text" />
           <div id="words"></div>
           <div id="cursor"></div>
           <div id="focus-warn">Click here to focus</div>
         </div>
-        <div id="wrapper">
+        <div class="wrapper">
           <div id="restart-button-container">
             <img src="public/restart.svg" id="restart-image" />
             <span id="restart-span-label">restart</span>
