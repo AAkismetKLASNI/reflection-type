@@ -1,12 +1,10 @@
-import { addClass } from './add.class.js';
-import { removeClass } from './remove.class.js';
-
 const handleLetter = (currentLetter, currentWord, expected, key) => {
   if (currentLetter) {
-    addClass(currentLetter, expected === key ? 'correct' : 'incorrect');
-    removeClass(currentLetter, 'current');
+    currentLetter.classList.add(expected === key ? 'correct' : 'incorrect');
+    currentLetter.classList.remove('current');
+
     if (currentLetter.nextSibling) {
-      addClass(currentLetter.nextSibling, 'current');
+      currentLetter.nextSibling.classList.add('current');
     }
   } else {
     const allExtraLetters = document.querySelectorAll(

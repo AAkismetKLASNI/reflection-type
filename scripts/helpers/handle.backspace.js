@@ -1,36 +1,39 @@
-import { addClass } from './add.class.js';
-import { removeClass } from './remove.class.js';
-
 const handleBackspace = (currentLetter, currentWord, isFirstLetter) => {
   if (currentLetter && isFirstLetter) {
     if (!currentWord.previousSibling) return;
 
-    removeClass(currentWord, 'current');
-    addClass(currentWord.previousSibling, 'current');
-    removeClass(currentLetter, 'current');
-    addClass(currentWord.previousSibling.lastChild, 'current');
+    currentWord.classList.remove('current');
+    currentLetter.classList.remove('current');
 
-    removeClass(currentWord.previousSibling, 'extra');
-    removeClass(currentWord.previousSibling.lastChild, 'incorrect');
-    removeClass(currentWord.previousSibling.lastChild, 'correct');
+    currentWord.previousSibling.classList.add('current');
+
+    if ([...currentWord.classList].includes('extra'))
+      currentWord.classList.remove('extra');
+
+    if ([...currentWord.previousSibling.lastChild.classList].includes('extra'))
+      return;
+
+    currentWord.previousSibling.lastChild.classList.add('current');
+    currentWord.previousSibling.lastChild.classList.remove(
+      'correct',
+      'incorrect'
+    );
   }
 
   if (currentLetter && !isFirstLetter) {
-    removeClass(currentLetter, 'current');
-    addClass(currentLetter.previousSibling, 'current');
-    removeClass(currentLetter.previousSibling, 'incorrect');
-    removeClass(currentLetter.previousSibling, 'correct');
+    currentLetter.classList.remove('current');
+    currentLetter.previousSibling.classList.add('current');
+    currentLetter.previousSibling.classList.remove('correct', 'incorrect');
   }
 
   if (!currentLetter) {
-    if (currentWord.lastChild.className.includes('extra')) {
-      console.log('del', currentWord.lastChild.textContent);
+    if ([...currentWord.lastChild.classList].includes('extra')) {
       currentWord.lastChild.remove();
-    } else {
-      addClass(currentWord.lastChild, 'current');
-      removeClass(currentWord.lastChild, 'incorrect');
-      removeClass(currentWord.lastChild, 'correct');
+      return;
     }
+
+    currentWord.lastChild.classList.add('current');
+    currentWord.lastChild.classList.remove('correct', 'incorrect');
   }
 };
 

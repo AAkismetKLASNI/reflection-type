@@ -6,7 +6,7 @@
   --textPrimary: #d0d0d0;
   --textSecondary: #666;
   --primaryText: #ff9758;
-  --errorText: #c44b4b;
+  --errorText: #a33333;
   --extraText: #db2a2a;
 }
 
@@ -112,15 +112,15 @@ main > *,
 
 #cursor {
   display: none;
-  position: fixed;
-  /* left: 5px;
-  top: 5px; */
-  left: 210px;
-  top: 370px;
-  width: 2px;
+  position: absolute;
+  border-radius: 2px;
+  left: 5px;
+  top: 5px;
+  width: 3px;
   background-color: #ff9758;
   height: 40px;
   animation: blink 1s infinite;
+  transition: all 0.13s;
 }
 
 #focus-warn {

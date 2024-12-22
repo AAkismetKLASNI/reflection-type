@@ -3,6 +3,8 @@ import { gameOver } from '../utils/game.over.js';
 const handleTimer = (gameTime) => {
   if (!window.gameStart) {
     window.gameStart = new Date().getTime();
+
+    document.getElementById('cursor').style.animation = 'none';
   }
 
   window.timer = setInterval(() => {

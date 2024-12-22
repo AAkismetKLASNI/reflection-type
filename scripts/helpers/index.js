@@ -1,5 +1,3 @@
-export * from './add.class.js';
-export * from './remove.class.js';
 export * from './formatter.word.js';
 export * from './get.random.word.js';
 export * from './get.wpm.js';

@@ -1,8 +1,8 @@
-import { addClass } from './add.class.js';
-import { removeClass } from './remove.class.js';
-
 const handleSpace = (currentLetter, currentWord, expected) => {
   if (currentWord.firstChild === currentLetter) return;
+
+  if ([...currentWord.classList].includes('extra'))
+    currentWord.classList.remove('extra');
 
   if (expected !== ' ') {
     const incorrectLetters = [
@@ -11,14 +11,14 @@ const handleSpace = (currentLetter, currentWord, expected) => {
       ),
     ];
 
-    incorrectLetters.forEach((letter) => addClass(letter, 'incorrect'));
-    removeClass(currentLetter, 'current');
-    addClass(currentWord, 'extra');
+    incorrectLetters.forEach((letter) => letter.classList.add('incorrect'));
+    currentLetter.classList.remove('current');
+    currentWord.classList.add('extra');
   }
 
-  removeClass(currentWord, 'current');
-  addClass(currentWord.nextSibling, 'current');
-  addClass(currentWord.nextSibling.firstChild, 'current');
+  currentWord.classList.remove('current');
+  currentWord.nextSibling.classList.add('current');
+  currentWord.nextSibling.firstChild.classList.add('current');
 
   // move letter
 
