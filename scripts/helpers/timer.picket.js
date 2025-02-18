@@ -9,9 +9,8 @@ const timerPicker = (event) => {
     if (currentTimeOption) currentTimeOption.classList.remove('active');
 
     timeOption.classList.add('active');
+    newGame();
   }
-
-  newGame();
 };
 
 export { timerPicker };

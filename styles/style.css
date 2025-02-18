@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
-  --bgcolor: #2e2727;
-  --textPrimary: #d0d0d0;
-  --textSecondary: #666;
-  --primaryText: #fd5a11;
-  --errorText: #a33333;
-  --extraText: #db2a2a;
+  --bg: rgb(0, 0, 0);
+  --primary: #d0d0d0;
+  --secondary: #414141;
+  --tertiary: #101010;
+  --accent: #fd5a11;
+  --error: #a33333;
+  --extra: #db2a2a;
 }
 
 * {
@@ -17,8 +18,8 @@
 }
 
 body {
-  background-color: var(--bgcolor);
-  color: var(--textPrimary);
+  background-color: var(--bg);
+  color: var(--primary);
   font-family: 'Roboto Mono', monospace;
   font-size: 20px;
 }
@@ -37,22 +38,23 @@ svg {
 
 h1 {
   font-size: 1.8rem;
-  color: var(--primaryText);
+  color: var(--primary);
 }
 
 /* header */
 
 header {
   padding: 1.5rem 0;
-  margin-bottom: 200px;
+  margin-bottom: 220px;
 }
 
 #logo-container {
   display: flex;
-  gap: 0.7rem;
+  gap: 1rem;
   align-items: center;
   cursor: pointer;
   user-select: none;
+  transition: opacity 0.5s;
 }
 
 #logo {
@@ -101,7 +103,7 @@ main > *,
 }
 
 #timer {
-  color: var(--primaryText);
+  color: var(--primary);
 }
 
 #timer,
@@ -116,21 +118,23 @@ main > *,
 }
 
 #timer-picker {
+  transition: opacity 0.5s;
+  color: var(--secondary);
   font-size: 1rem;
   display: flex;
   gap: 2.5rem;
   padding: 10px 30px;
   border-radius: 50px;
-  background-color: #242222;
+  background-color: var(--tertiary);
 }
 
 .time-option:hover {
-  color: var(--primaryText);
+  color: var(--primary);
   cursor: pointer;
 }
 
 .time-option.active {
-  color: var(--primaryText);
+  color: var(--primary);
 }
 
 #words-type {
@@ -143,9 +147,10 @@ main > *,
 }
 
 #words {
+  transition: all 0.2s;
   filter: blur(5px);
   width: 100%;
-  color: var(--textSecondary);
+  color: var(--secondary);
 }
 
 #cursor {
@@ -155,7 +160,7 @@ main > *,
   left: 5px;
   top: 5px;
   width: 3px;
-  background-color: var(--primaryText);
+  background-color: var(--primary);
   height: 40px;
   animation: blink 1s infinite;
   transition: all 0.13s;
@@ -175,23 +180,20 @@ main > *,
 }
 
 #restart-button-container {
-  font-weight: 600;
-  color: var(--textSecondary);
   padding: 1rem;
-  gap: 1rem;
   cursor: pointer;
-}
+  transition: all 0.2s;
 
-#restart-button-container:hover {
-  filter: invert(100%);
+  &:hover {
+    transform: rotate(180deg);
+    width: 1.5rem;
+    filter: invert(100%);
+    scale: 1.2;
+  }
 }
 
 #restart-image {
   width: 1.5rem;
-}
-
-#restart-span-label {
-  transition: opacity 0.15s;
 }
 
 .word {
@@ -201,19 +203,19 @@ main > *,
 }
 
 .word.extra {
-  border-bottom: 2px solid var(--errorText);
+  border-bottom: 2px solid var(--error);
 }
 
 .letter.correct {
-  color: var(--textPrimary);
+  color: var(--primary);
 }
 
 .letter.incorrect {
-  color: var(--errorText);
+  color: var(--error);
 }
 
 .letter.extra {
-  color: var(--extraText);
+  color: var(--extra);
 }
 
 @media (max-width: 570px) {
@@ -233,3 +235,5 @@ main > *,
     opacity: 1;
   }
 }
+
+/* fix: разбить на модули и перейти на scss */

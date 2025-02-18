@@ -9,9 +9,8 @@ const newGame = () => {
     document.getElementById('game-container').classList.remove('over');
   }
 
-  document.getElementById('timer').innerHTML = document.querySelector(
-    '.time-option.active'
-  )?.innerHTML;
+  document.getElementById('timer').innerHTML =
+    document.querySelector('.time-option.active')?.innerHTML;
   document.getElementById('words').innerHTML = '';
   document.getElementById('words').style.marginTop = '0';
 
@@ -19,6 +18,9 @@ const newGame = () => {
     document.getElementById('words').innerHTML += getRandomWord(words);
   }
 
+  document.getElementById('restart-button-container').style.opacity = '1';
+  document.getElementById('logo-container').style.opacity = '1';
+  document.getElementById('timer-picker').style.opacity = '1';
   document.getElementById('cursor').style.top = '5px';
   document.getElementById('cursor').style.left = '5px';
   document.getElementById('cursor').style.animation = 'blink 1s infinite';

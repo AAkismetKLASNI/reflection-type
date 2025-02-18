@@ -39,3 +39,5 @@ document.getElementById('restart-button-container').onclick = newGame;
 document.getElementById('logo-container').onclick = newGame;
 
 newGame();
+
+// fix: доработать бэкспейс (зажатие)
